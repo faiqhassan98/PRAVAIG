@@ -25,7 +25,8 @@ app.use('/upload', express.static('upload'));
 
 
 
-mongoose.connect('mongodb://localhost/pravaig')
+// mongoose.connect('mongodb://localhost/pravaig')
+mongoose.connect('mongodb+srv://pravaig:pravaig12345@pravaig-cluster.kkbxfni.mongodb.net/?retryWrites=true&w=majority')
     .then(() => console.log('Now connected to MongoDB!'))
     .catch(err => console.error('Something went wrong', err));
 
