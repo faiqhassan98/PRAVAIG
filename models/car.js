@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const carSch = mongoose.model('Cars', new mongoose.Schema({
+const carSch = mongoose.model('Cars', new mongoose.Schema(
+    {
     models: [{
         car: {
             type: String,

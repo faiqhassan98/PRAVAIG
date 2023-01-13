@@ -4,10 +4,34 @@ const { carSch } = require('../models/car');
 // get all cars
 const getcars = async (req, res) => {
     try {
-    const cars = await carSch.find();
-    res.send(cars[0]);
+        const cars = await carSch.find();
+        res.send(cars[0]);
     }
-    catch (err){
+    catch (err) {
+        res.status(400).send(err)
+    }
+}
+
+// get data by wuery
+const getc = async (req, res) => {
+    try {
+        console.log("req.query.model",req.query.model)
+        const getc = await carSch.find(
+            {
+                "_id": req.params.id
+            },
+                {
+                    models: {
+                        "$elemMatch": {
+                            "car": req.query.model
+                        }
+                    }
+                }
+        )
+        console.log(getc);
+        res.send(getc)
+    }
+    catch (err) {
         res.status(400).send(err)
     }
 }
@@ -58,8 +82,8 @@ const getcarbed = async (req, res) => {
                 "_id": req.params.id
             },
                 {
-                    carbonedition:{
-                        "$elemMatch":{
+                    carbonedition: {
+                        "$elemMatch": {
                             "color": req.body.carbED
                         }
                     }
@@ -77,9 +101,9 @@ const getcarbed = async (req, res) => {
 // add cars
 const carmod = async (req, res) => {
     try {
-    const cardata = await carSch(req.body)
-    await cardata.save();
-    res.send(cardata);
+        const cardata = await carSch(req.body)
+        await cardata.save();
+        res.send(cardata);
     }
     catch (err) {
         res.status(400).send(err)
@@ -113,6 +137,7 @@ const delcars = async (req, res) => {
 
 module.exports = {
     carmod,
+    getc,
     getcars,
     getcarcol,
     getcarbed,

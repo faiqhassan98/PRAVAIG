@@ -19,8 +19,8 @@ app.use(bodyParser.json())
 //enable cors
 app.use(cors());
 
-app.use('/cars', carRouter);
-app.use('/upl', colorsRouter);
+app.use('api/cars', carRouter);
+app.use('api/upl', colorsRouter);
 app.use('/upload', express.static('upload'));
 
 
