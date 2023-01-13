@@ -60,7 +60,7 @@ const carSch = mongoose.model('Cars', new mongoose.Schema({
                 },
                 description:{
                     type: String,
-                    required: false
+                    required: true
                 }
             }
         ],
@@ -76,7 +76,7 @@ const carSch = mongoose.model('Cars', new mongoose.Schema({
                 },
                 description:{
                     type: String,
-                    required: false
+                    required: true
                 },
                 options: [
                     {
@@ -90,7 +90,7 @@ const carSch = mongoose.model('Cars', new mongoose.Schema({
                         },
                         description:{
                             type: String,
-                            required: false
+                            required: true
                         }
                     },
                 ],

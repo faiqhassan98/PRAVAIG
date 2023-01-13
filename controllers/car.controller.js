@@ -3,8 +3,13 @@ const { carSch } = require('../models/car');
 
 // get all cars
 const getcars = async (req, res) => {
+    try {
     const cars = await carSch.find();
     res.send(cars[0]);
+    }
+    catch (err){
+        res.status(400).send(err)
+    }
 }
 
 // get cars exterior color by id
@@ -71,10 +76,14 @@ const getcarbed = async (req, res) => {
 
 // add cars
 const carmod = async (req, res) => {
-
+    try {
     const cardata = await carSch(req.body)
     await cardata.save();
     res.send(cardata);
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
 }
 
 // update cars data
