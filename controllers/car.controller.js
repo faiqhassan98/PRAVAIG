@@ -12,24 +12,23 @@ const getcars = async (req, res) => {
     }
 }
 
-// get data by wuery
+// get data by query
 const getc = async (req, res) => {
     try {
-        console.log("req.query.model",req.query.model)
+        console.log("req.query.model", req.query.model)
         const getc = await carSch.find(
             {
                 "_id": req.params.id
             },
-                {
-                    models: {
-                        "$elemMatch": {
-                            "car": req.query.model
-                        }
+            {
+                models: {
+                    "$elemMatch": {
+                        "car": req.query.model
                     }
                 }
+            }
         )
-        console.log(getc);
-        res.send(getc)
+        res.status(200).send(getc)
     }
     catch (err) {
         res.status(400).send(err)
@@ -112,26 +111,35 @@ const carmod = async (req, res) => {
 
 // update cars data
 const updcar = async (req, res) => {
-    const updcar = await carSch.findByIdAndUpdate(
-        req.params._id,
-        {
-            $set: req.body
-        },
-        {
-            new: true,
-            runValidators: false
-        }
-    );
-    await updcar.save();
-    console.log(updcar);
-    res.send(updcar);
+    try {
+        const updcar = await carSch.findByIdAndUpdate(
+            req.params._id,
+            {
+                $set: req.body
+            },
+            {
+                new: true,
+                runValidators: false
+            }
+        );
+        await updcar.save();
+        res.status(200).send(updcar);
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
 };
 
 // cars delete by id
 const delcars = async (req, res) => {
-    const delcar = await carSch.findByIdAndDelete(req.params._id);
-    console.log(delcar.id + ' is deleted ');
-    res.send(delcar.id + ' is deleted ');
+    try {
+        const delcar = await carSch.findByIdAndDelete(req.params._id);
+        console.log(delcar.id + ' is deleted ');
+        res.send(delcar.id + ' is deleted ');
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
 };
 
 

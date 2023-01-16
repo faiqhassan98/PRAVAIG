@@ -20,8 +20,21 @@ app.use(bodyParser.json())
 app.use(cors());
 
 app.use('/api/cars', carRouter);
-app.use('/api/upl', colorsRouter);
 app.use('/api/upload', express.static('upload'));
+
+app.use(
+    bodyParser.json({
+      limit: '50mb',
+    }),
+  );
+  app.use(
+    bodyParser.urlencoded({
+      limit: '50mb',
+      parameterLimit: 100000,
+      extended: true,
+    }),
+  );
+>>>>>>> c5efdddc27fb73660c8934b688d5c71aa006e35f
 
 
 

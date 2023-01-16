@@ -52,10 +52,10 @@ const adddata = (async (req, res) => {
 
 
 const delimage = ((req, res) => {
-    console.log(req.params)
+    // console.log(req.params)
     fs.unlink('./upload' + '/' + req.params.imgpath, (err) => {
         if (err) {
-            return res.status(404).send("Folder Not Found")
+            return res.status(404).send("Image Not Found")
         }
         else {
             return res.send('Image deleted Successfully');
