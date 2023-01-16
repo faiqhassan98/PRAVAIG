@@ -21,7 +21,7 @@ app.use(cors());
 
 app.use('/api/cars', carRouter);
 app.use('/api/upl', colorsRouter);
-app.use('/upload', express.static('upload'));
+app.use('/api/upload', express.static('upload'));
 
 
 
