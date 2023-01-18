@@ -32,13 +32,17 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
         },
         wheels: {
             type: [String],
-            // ref: "Wheels",
             required: true
+        },
+        price:{
+            type: String,
+            default: "0"
         },
         code: {
             type: String,
             required: true
         }
+        
     }],
     interiorcolors: {
         type: [String],
@@ -81,7 +85,12 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
                 description:{
                     type: String,
                     required: true
+                },
+                code: {
+                    type: String,
+                    required: true
                 }
+                
             }
         ],
         advance: [
@@ -95,10 +104,6 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
                     required: true
                 },
                 description:{
-                    type: String,
-                    required: true
-                },
-                code: {
                     type: String,
                     required: true
                 },
