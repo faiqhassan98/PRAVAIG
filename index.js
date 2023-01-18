@@ -8,6 +8,7 @@ const multer = require('multer');
 const fs = require("fs");
 const bodyParser = require('body-parser')
 const carRouter = require("./routes/car.routes");
+const wheelsRouter = require("./routes/wheels.routes");
 const colorsRouter = require("./routes/color.routes");
 const { fileupl } = require('./models/color');
 
@@ -20,6 +21,7 @@ app.use(bodyParser.json())
 app.use(cors());
 
 app.use('/api/cars', carRouter);
+app.use('/api/wheels', wheelsRouter);
 app.use('/api/colors', colorsRouter);
 app.use('/api/upload', express.static('upload'));
 
@@ -36,9 +38,8 @@ app.use(
     }),
   );
 
-
-// mongoose.connect('mongodb://localhost/pravaig')
 mongoose.connect('mongodb+srv://pravaig:pravaig12345@pravaig-cluster.kkbxfni.mongodb.net/?retryWrites=true&w=majority')
+// mongoose.connect('mongodb://localhost/pravaig')
     .then(() => console.log('Now connected to MongoDB!'))
     .catch(err => console.error('Something went wrong', err));
 
