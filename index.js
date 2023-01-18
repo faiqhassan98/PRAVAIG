@@ -9,6 +9,7 @@ const fs = require("fs");
 const bodyParser = require('body-parser')
 const carRouter = require("./routes/car.routes");
 const wheelsRouter = require("./routes/wheels.routes");
+const intcolorRouter = require("./routes/intColor.routes");
 const colorsRouter = require("./routes/color.routes");
 const { fileupl } = require('./models/color');
 
@@ -22,6 +23,7 @@ app.use(cors());
 
 app.use('/api/cars', carRouter);
 app.use('/api/wheels', wheelsRouter);
+app.use('/api/intcolors', intcolorRouter);
 app.use('/api/colors', colorsRouter);
 app.use('/api/upload', express.static('upload'));
 

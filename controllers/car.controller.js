@@ -5,7 +5,7 @@ const { carSch } = require('../models/car');
 // get all cars
 const getcars = async (req, res) => {
     try {
-        const cars = await carSch.find().populate("wheels");
+        const cars = await carSch.find().populate("wheels interiorcolors");
         // const cars = await carSch.find();
         if (cars.length > 0) {
             res.send(cars[0]);

@@ -4,7 +4,7 @@ const { wheelsSch } = require('../models/wheels');
 const getwheels = async (req, res) => {
     try {
         const carwheel = await wheelsSch.find();
-        res.send(carwheel[0]);
+        res.send(carwheel);
     }
     catch (err) {
         res.status(400).send(err)

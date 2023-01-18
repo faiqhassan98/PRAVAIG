@@ -46,6 +46,7 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
     }],
     interiorcolors: {
         type: [String],
+        ref: "intColor",
         required: true
     },
     carbonedition: [{
