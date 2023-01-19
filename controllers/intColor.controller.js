@@ -23,7 +23,28 @@ const addintColor = async (req, res) => {
     }
 }
 
+const updateInteriorColor = async (req, res) => {
+    try {
+        const updateInteriorColor = await intColorSch.findByIdAndUpdate(
+            req.params.id,
+            {
+                $set: req.body
+            },
+            {
+                new: true,
+                runValidators: false
+            }
+        );
+        await updateInteriorColor.save();
+        res.status(200).send(updateInteriorColor);
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
+}
+
 module.exports = {
     getintColor,
-    addintColor
+    addintColor,
+    updateInteriorColor
 }
