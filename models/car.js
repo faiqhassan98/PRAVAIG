@@ -62,6 +62,11 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
             type: [String],
             required: true
         },
+        price: {
+            type: String,
+            required: true,
+            default: "6300000"
+        },
         code: {
             type: String,
             required: true

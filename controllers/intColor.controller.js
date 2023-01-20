@@ -23,6 +23,7 @@ const addintColor = async (req, res) => {
     }
 }
 
+// upd car interior
 const updateInteriorColor = async (req, res) => {
     try {
         const updateInteriorColor = await intColorSch.findByIdAndUpdate(
