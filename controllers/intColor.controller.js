@@ -11,6 +11,17 @@ const getintColor = async (req, res) => {
     }
 }
 
+// get car interior Colors by id
+const getintColorid = async (req, res) => {
+    try {
+        const getintColorid = await intColorSch.findById(req.params.id);
+        res.send(getintColorid);
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
+}
+
 // add car interior
 const addintColor = async (req, res) => {
     try {
@@ -44,8 +55,22 @@ const updateInteriorColor = async (req, res) => {
     }
 }
 
+// delete car interior Colors by Id
+const delintColor = async (req, res) => {
+    try {
+        const delintColor = await intColorSch.findByIdAndDelete(req.params.id);
+        res.send(delintColor.id + ' is deleted ');
+    }
+    catch (err) {
+        res.status(400).send(err)
+    }
+};
+
+
 module.exports = {
     getintColor,
+    getintColorid,
     addintColor,
-    updateInteriorColor
+    updateInteriorColor,
+    delintColor
 }
