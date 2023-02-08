@@ -3,23 +3,23 @@ const mongoose = require('mongoose');
 const wheelsSch = mongoose.model('Wheels', new mongoose.Schema({
         mainImage: {
             type: String,
-            required: true
+            required: false
         },
         name: {
             type: String,
-            required: true
+            required: false
         },
         size: {
             type: String,
-            required: true
+            required: false
         },
         price: {
             type: String,
-            required: true
+            required: false
         },
         code: {
             type: String,
-            required: true
+            required: false
         }
 }));
 

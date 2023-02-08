@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const extColorSch = mongoose.model('extColor', new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     color: {
         type: String,
-        required: true
+        required: false
     },
     mainImage: {
         type: String,
-        required: true
+        required: false
     },
     wheels: {
         type: [String],
-        required: true
+        required: false
     },
     price: {
         type: String,
@@ -23,7 +23,7 @@ const extColorSch = mongoose.model('extColor', new mongoose.Schema({
     },
     code: {
         type: String,
-        required: true
+        required: false
     }
 }));
 

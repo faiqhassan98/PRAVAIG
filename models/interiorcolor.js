@@ -3,20 +3,20 @@ const mongoose = require('mongoose');
 const intColorSch = mongoose.model('intColor', new mongoose.Schema({
         color: {
             type: String,
-            required: true
+            required: false
         },
         mainImage: {
             type: String,
-            required: true
+            required: false
         },
         price:{
             type: String,
             default: "0",
-            required: true
+            required: false
         },
         code: {
             type: String,
-            required: true
+            required: false
         }
 }));
 

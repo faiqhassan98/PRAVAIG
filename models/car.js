@@ -5,34 +5,34 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
         models: [{
             car: {
                 type: String,
-                required: true
+                required: false
             },
             price: {
                 type: String,
                 default: "39,50,000",
-                required: true
+                required: false
             },
             code: {
                 type: String,
-                required: true
+                required: false
             }
         }],
         exteriorcolors: [{
             name: {
                 type: String,
-                required: true
+                required: false
             },
             color: {
                 type: String,
-                required: true
+                required: false
             },
             mainImage: {
                 type: String,
-                required: true
+                required: false
             },
             wheels: {
                 type: [String],
-                required: true
+                required: false
             },
             price: {
                 type: String,
@@ -40,69 +40,69 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
             },
             code: {
                 type: String,
-                required: true
+                required: false
             }
 
         }],
         interiorcolors: {
             type: [String],
             ref: "intColor",
-            required: true
+            required: false
         },
         carbonedition: [{
             title: {
                 type: String,
-                required: true
+                required: false
             },
             type: {
                 type: String,
-                required: true
+                required: false
             },
             color: {
                 type: String,
-                required: true
+                required: false
             },
             mainImage: {
                 type: String,
-                required: true
+                required: false
             },
             wheels: {
                 type: [String],
-                required: true
+                required: false
             },
             price: {
                 type: String,
-                required: true,
+                required: false,
                 default: "6300000"
             },
             code: {
                 type: String,
-                required: true
+                required: false
             }
         }],
         wheels: {
             type: [String],
             ref: "Wheels",
-            required: true
+            required: false
         },
         addons: {
             basic: [
                 {
                     title: {
                         type: String,
-                        required: true
+                        required: false
                     },
                     price: {
                         type: String,
-                        required: true
+                        required: false
                     },
                     description: {
                         type: String,
-                        required: true
+                        required: false
                     },
                     code: {
                         type: String,
-                        required: true
+                        required: false
                     }
 
                 }
@@ -111,33 +111,33 @@ const carSch = mongoose.model('Cars', new mongoose.Schema(
                 {
                     title: {
                         type: String,
-                        required: true
+                        required: false
                     },
                     subTitle: {
                         type: String,
-                        required: true
+                        required: false
                     },
                     description: {
                         type: String,
-                        required: true
+                        required: false
                     },
                     options: [
                         {
                             title: {
                                 type: String,
-                                required: true
+                                required: false
                             },
                             price: {
                                 type: String,
-                                required: true
+                                required: false
                             },
                             description: {
                                 type: String,
-                                required: true
+                                required: false
                             },
                             code: {
                                 type: String,
-                                required: true
+                                required: false
                             }
                         },
                     ],
